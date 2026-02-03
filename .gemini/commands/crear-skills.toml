@@ -1,0 +1,14 @@
+description = "Activa la skill 'skill-creator' para ayudarte a diseñar y generar nuevas habilidades (skills), utilizando la guía oficial."
+prompt = """
+Activa la skill 'skill-creator'.   
+El usuario desea crear una nueva skill con la siguiente descripción:
+{{args}}
+
+Para asegurar que la skill se cree correctamente, utiliza la siguiente referencia sobre cómo crear y ejecutar nuevas skills: 
+    1. lee el archivo @{./.gemini/skills/create-skills/SKILL.md } 
+    2. Sigue estas directrices y las instrucciones de la skill activada para generar los archivos necesarios.
+    3. El nombre de la SKILL.md generada debe de estar en Español. 
+    4. El contenido de la SKILL.md generada debe de estar en Ingles. 
+    5. Lee el archivo @{./.gemini/skills/complementacion-skill/SKILL.md} y sigue sus directrices para continuar con la creacion de la skill.
+    7. Utiliza la skill @{./.gemini/skills/writing-clearly-and-concisely/SKILL.md} para dar tu respuesta final al usuario.
+"""

@@ -1,0 +1,14 @@
+description = "Modifica una skill existente siguiendo los protocolos de edición y el manual de escritura."
+prompt = """
+Activa las skills 'skill-creator' y 'complementacion-skill'.
+El usuario desea realizar la siguiente modificación en una skill: {args}
+
+Para asegurar una modificación correcta, sigue este proceso:
+1. Identifica la skill a modificar dentro del directorio `.gemini/skills/`.
+2. Lee el archivo `SKILL.md` y cualquier archivo de referencia en su carpeta.
+3. Aplica los protocolos de edición y mejora definidos en @{./.gemini/skills/complementacion-skill/SKILL.md}.
+4. Asegúrate de mantener la estructura obligatoria de @{./.gemini/skills/create-skills/SKILL.md} (carpetas scripts, references, assets).
+5. Realiza los cambios utilizando `replace` o `write_file` según corresponda.
+6. Recuerda: El contenido de las instrucciones en `SKILL.md` debe estar en Inglés, pero la documentación de apoyo puede seguir las reglas de la skill 'complementacion-skill'.
+7. Utiliza la skill @{./.gemini/skills/writing-clearly-and-concisely/SKILL.md} para dar tu respuesta final al usuario.
+"""

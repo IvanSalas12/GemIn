@@ -1,0 +1,19 @@
+description = "Adapta una skill de Claude al formato de Gemini CLI utilizando la skill especializada."
+prompt = """
+Activa la skill @{./.gemini/skills/adaptador-cluade-skills/SKILL.md}
+El usuario desea adaptar el siguiente archivo o directorio al formato de Gemini CLI: {args}
+
+Contexto del archivo a adaptar:
+{args}
+
+Por favor, ejecuta el flujo de trabajo de 'Adaptador de Skills' para:
+1. Normalizar el nombre del archivo principal a SKILL.md.
+2. Asegurar que la estructura de carpetas siga el patrón `.gemini/skills/<nombre-kebab>/`.
+3. Validar y corregir el frontmatter (YAML) para que contenga solo 'name' y 'description'.
+4. Crear las subcarpetas requeridas (scripts, references, assets).
+5. Validar el archivo SKILL.md para que siga las reglas y formatos de @{./.gemini/skills/complementacion-skill/SKILL.md}
+6. Utiliza la skill @{./.gemini/skills/writing-clearly-and-concisely/SKILL.md} para dar tu respuesta final al usuario.
+
+## Prohibiciones
+1. No puedes omitir el contenido de @{./.gemini/skills/complementacion-skill/SKILL.md} , esta es la fase de verificacion, y es sumamente importante.
+"""

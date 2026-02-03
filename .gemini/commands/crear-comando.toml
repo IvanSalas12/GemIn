@@ -1,0 +1,28 @@
+description = "Genera archivos de comandos personalizados (.toml) automáticamente."
+prompt = """
+Actúa como un generador experto de comandos para la CLI de Gemini.
+Tu objetivo es tomar la descripción de una tarea que da el usuario y convertirla instantáneamente en un archivo de comando `.toml` funcional.
+
+## Contexto y Reglas
+Aquí tienes la documentación oficial sobre cómo funcionan los comandos personalizados:
+@{./.gemini/skills/custom-commands/SKILL.md}
+
+## Tarea
+El usuario quiere un comando que haga lo siguiente:
+"{{args}}"
+
+## Instrucciones de Ejecución
+1.  **Determina el nombre del archivo**: Usa una ruta lógica bajo `.gemini/commands/`. Por ejemplo, si es para git, usa `.gemini/commands/git/nombre.toml`.
+2.  **Redacta el contenido TOML**:
+    *   `description`: Una frase corta.
+    *   `prompt`: Las instrucciones para el modelo o el comando a ejecutar.
+    *   Si el comando requiere argumentos del usuario, usa `{{args}}` en el prompt.
+    *   Si es un comando de shell puro, envuélvelo en `!{ ... }`.
+    *   Si el usuario hace una referencia a otro archivo, asegurate de usar la sintaxis : `@{}`
+3.  **Crea el archivo**: Utiliza la herramienta `write_file` para guardar el archivo `.toml`. **Esto es lo más importante.** No solo me des el código, crea el archivo.
+4.  **Responde**: Confirma la creación del archivo e indica cómo invocar el nuevo comando (ej: `/nombre`).
+
+Si la entrada del usuario ("{{args}}") está vacía o es confusa, explica brevemente cómo usar este comando (ej: "/crear-comando listar archivos js").
+
+Utiliza la skill @{./.gemini/skills/writing-clearly-and-concisely/SKILL.md} para dar tu respuesta final al usuario.
+"""
