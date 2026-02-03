@@ -21,16 +21,16 @@ async function copiarConfiguracion(force = false) {
 
     try {
         if (!force && await fs.pathExists(destination)) {
-            console.log('⚠️  La carpeta .gemini ya existe.');
+            console.log('⚠️ La carpeta .gemini ya existe.');
             console.log('Usa "npx gemin update" para actualizarla con las nuevas funciones.');
             return;
         }
 
         console.log(force ? 'Actualizando carpeta .gemini...' : 'Instalando carpeta .gemini...');
         await fs.copy(source, destination);
-        console.log('✅ Proceso completado con éxito.');
+        console.log(' Proceso completado con éxito.');
     } catch (err) {
-        console.error('❌ Error al procesar la carpeta .gemini:', err);
+        console.error(' Error al procesar la carpeta .gemini:', err);
     }
 }
 
@@ -48,7 +48,7 @@ program
         console.log('Buscando actualizaciones de comandos y skills...');
         // Aquí forzamos la copia para sobrescribir archivos base
         await copiarConfiguracion(true);
-        console.log('🚀 Tu configuración local ahora está al día con la versión del paquete.');
+        console.log(' Tu configuración local ahora está al día con la versión del paquete.');
     });
 
 // COMANDO ADD: npx gemin add --skill nombre
@@ -68,9 +68,9 @@ program
         try {
             if (await fs.pathExists(sourceSkill)) {
                 await fs.copy(sourceSkill, destSkill);
-                console.log(`✅ Skill "${options.skill}" añadida correctamente.`);
+                console.log(` Skill "${options.skill}" añadida correctamente.`);
             } else {
-                console.log(`❌ La skill "${options.skill}" no existe en el paquete.`);
+                console.log(`La skill "${options.skill}" no existe en el paquete.`);
             }
         } catch (err) {
             console.error('Error al añadir la skill:', err);
