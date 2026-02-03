@@ -1,6 +1,6 @@
 {
     "name": "gemin",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Instalador de configuración y skills para Gemini CLI",
     "main": "install.js",
     "bin": {
