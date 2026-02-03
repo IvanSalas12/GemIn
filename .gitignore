@@ -1,0 +1,16 @@
+node_modules/
+
+# Logs de error
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Configuración local (si tuvieras)
+.env
+
+# Asegurar que la carpeta .gemini se suba siempre
+!.gemini/
